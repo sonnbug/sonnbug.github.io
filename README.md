@@ -1,1 +1,1 @@
-[Truy cap](index.html)
+[o](index.html)
