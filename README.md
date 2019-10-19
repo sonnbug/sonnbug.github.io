@@ -1,1 +1,1 @@
-# sonnbug.github.io
+[Truy cap](index.html)
