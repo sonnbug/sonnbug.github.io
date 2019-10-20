@@ -1,0 +1,8 @@
+@font-face{
+  src:url(font_sketch.otf);
+  font-family: titfont;
+}
+
+.font-tit{
+  font-family: titfont;
+}
