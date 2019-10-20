@@ -16,7 +16,11 @@
 
 
 .font-bd{
-  font-family: 'Long Cang', cursive;
-  font-size: 40px;
+  font-family: 'Press Start 2P', cursive;
+
 }
 
+.font-bd-2{
+  font-family: 'Press Start 2P', cursive;
+  margin-left: 20px;
+}
