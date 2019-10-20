@@ -5,4 +5,20 @@
 
 .font-tit{
   font-family: titfont;
+  margin-left: 560px;
+
 }
+.font-tit-2{
+  font-family: titfont;
+  margin-left: 450px;
+}
+
+
+@font-face{
+  src:url(font_vosten.otf);
+  font-family: vosten;
+}
+.font-bd{
+  font-family: 'Long Cang', cursive;
+}
+
