@@ -14,13 +14,41 @@
 }
 
 
+body {
+  font-family: 'Arial', sans-serif;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 20px;
+}
 
-.font-bd{
-  font-family: 'Press Start 2P', cursive;
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #ffffff;
+  margin-bottom: 1px;
 
 }
 
-.font-bd-2{
-  font-family: 'Press Start 2P', cursive;
-  margin-left: 20px;
+li {
+  float: left;
+}
+
+li a, .dropdown-btn{
+  display: inline-block;;
+  color: #000000;
+  text-align: center;
+  padding: 18px 22px;
+  text-decoration: none
+}
+
+
+.menu{
+  font-family: 'Bungee Inline', cursive;
+}
+
+
+.line1{
+  font-family: 'Sedgwick Ave', cursive;
 }
