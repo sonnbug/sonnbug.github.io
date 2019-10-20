@@ -83,3 +83,108 @@ body {
 .welcome_text{
   color: #000000;
 }
+
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #50BF94;
+}
+
+p {
+  height: 55px;
+  font-family: 'Permanent Marker', cursive;
+  font-size: 48px;
+  color: #F8ECEE;
+}
+ul {
+  height: 55px;
+  width: 400px;
+  margin-left: 20px;
+  position: relative;
+}
+li {
+  list-style: none;
+  position: absolute;
+  white-space: nowrap;
+  
+  font-family: 'Permanent Marker', cursive;
+  font-size: 48px;
+  color: #434EB0;
+  // color: #FFCB52;
+  color: #1D1E22;
+  sub {
+    bottom: 0;
+  }
+  
+  $n: 7;
+  $switch: .2s;
+  $stay: .8s;
+  $height: 55px;
+  
+  @mixin before {
+    transform: translateY(-$height/2) rotateX(-90deg);
+    opacity: 0;
+  }
+  @mixin shown {
+    transform: translateY(0) rotateX(0);
+    opacity: 1;
+  }
+  @mixin after {
+    transform: translateY($height/2) rotateX(90deg);
+    opacity: 0;
+  }
+  
+  $whole: ($switch + $stay) * $n;
+  $switch_p: $switch / $whole * 100;
+  $stay_p: $stay / $whole * 100;
+  
+  @for $i from 0 to $n {
+    &:nth-child(#{$i + 1}) {
+      @if $i + 1 != $n {
+        @keyframes #{an + $i} {
+          0%,
+          #{$i * ($switch_p + $stay_p) + '%'} {
+            @include before;
+          }
+          #{$i * ($switch_p + $stay_p) + $switch_p + '%'},
+          #{($i + 1) * ($switch_p + $stay_p) + '%'}{
+            @include shown;
+          }
+          100%,
+          #{($i + 1) * ($switch_p + $stay_p) + $switch_p + '%'} {
+            @include after;
+          }
+        }
+        animation: #{an + $i} $whole infinite backwards;
+      }
+      @else {
+        @keyframes #{an + $i} {
+          0%, #{100 - $switch_p * 2 - $stay_p + '%'} {
+            @include before;
+          }
+          #{100 - $switch_p - $stay_p + '%'},
+          #{100 - $switch_p + '%'}{
+            @include shown;
+          }
+          100% {
+            @include after;
+          }
+        }
+        animation: #{an + $i} $whole $switch infinite backwards;
+      }
+    }
+  }
+}
+
+
