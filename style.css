@@ -14,11 +14,9 @@
 }
 
 
-@font-face{
-  src:url(font_vosten.otf);
-  font-family: vosten;
-}
+
 .font-bd{
   font-family: 'Long Cang', cursive;
+  font-size: 40px;
 }
 
