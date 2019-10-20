@@ -84,107 +84,54 @@ body {
   color: #000000;
 }
 
-* {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-*, *::before, *::after {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+@import url('https://fonts.googleapis.com/css?family=Montserrat:900');
+
 body {
+  display: table;
+  margin: 0;
+  width: 100vw;
   height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: #50BF94;
+  background-attachment: fixed;
+  background-image: url('https://thumbs.gfycat.com/SatisfiedQuarrelsomeInsect-small.gif');
+/*  background-image: url('https://media2.giphy.com/media/3o84TXH75pflqWGPi8/source.gif'); */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
-p {
-  height: 55px;
-  font-family: 'Permanent Marker', cursive;
-  font-size: 48px;
-  color: #F8ECEE;
+body::before {
+  content: '';
+  display: block;
+  position: absolute;%p I'll have
+%ul
+  %li two number nines
+  %li a number nine large
+  %li a number 6 with extra dip
+  %li a number 7
+  %li two number 45<sub>s</sub>
+  %li one with cheese
+  %li and a large soda
+  -# - (1..6).each do |i|
+    %li item #{i}
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
 }
-ul {
-  height: 55px;
-  width: 400px;
-  margin-left: 20px;
+
+body::after {
+  content: 'LEGION';
+  display: table-cell;
+  vertical-align: middle;
   position: relative;
+  background: inherit;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16vw;
+  font-weight: 900;
+  letter-spacing: 0.25em;
+  text-align: center;
 }
-li {
-  list-style: none;
-  position: absolute;
-  white-space: nowrap;
-  
-  font-family: 'Permanent Marker', cursive;
-  font-size: 48px;
-  color: #434EB0;
-  // color: #FFCB52;
-  color: #1D1E22;
-  sub {
-    bottom: 0;
-  }
-  
-  $n: 7;
-  $switch: .2s;
-  $stay: .8s;
-  $height: 55px;
-  
-  @mixin before {
-    transform: translateY(-$height/2) rotateX(-90deg);
-    opacity: 0;
-  }
-  @mixin shown {
-    transform: translateY(0) rotateX(0);
-    opacity: 1;
-  }
-  @mixin after {
-    transform: translateY($height/2) rotateX(90deg);
-    opacity: 0;
-  }
-  
-  $whole: ($switch + $stay) * $n;
-  $switch_p: $switch / $whole * 100;
-  $stay_p: $stay / $whole * 100;
-  
-  @for $i from 0 to $n {
-    &:nth-child(#{$i + 1}) {
-      @if $i + 1 != $n {
-        @keyframes #{an + $i} {
-          0%,
-          #{$i * ($switch_p + $stay_p) + '%'} {
-            @include before;
-          }
-          #{$i * ($switch_p + $stay_p) + $switch_p + '%'},
-          #{($i + 1) * ($switch_p + $stay_p) + '%'}{
-            @include shown;
-          }
-          100%,
-          #{($i + 1) * ($switch_p + $stay_p) + $switch_p + '%'} {
-            @include after;
-          }
-        }
-        animation: #{an + $i} $whole infinite backwards;
-      }
-      @else {
-        @keyframes #{an + $i} {
-          0%, #{100 - $switch_p * 2 - $stay_p + '%'} {
-            @include before;
-          }
-          #{100 - $switch_p - $stay_p + '%'},
-          #{100 - $switch_p + '%'}{
-            @include shown;
-          }
-          100% {
-            @include after;
-          }
-        }
-        animation: #{an + $i} $whole $switch infinite backwards;
-      }
-    }
-  }
-}
-
-
